@@ -1,5 +1,11 @@
 # About
 
+![Astro](https://img.shields.io/badge/Astro-20232A?style=for-the-badge&logo=astro&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-3A7AFE?style=for-the-badge)
+
 this solution was converted from a react.js + vite + react-router libarary SPA, to a Astro + React.js SSR app.
 
 To create a new astro template 👇:
