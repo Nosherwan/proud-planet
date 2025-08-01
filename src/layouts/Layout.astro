@@ -1,0 +1,68 @@
+---
+// src/layouts/StandardLayout.astro
+import Header from "../components/header.astro";
+// Import your CSS files if needed
+import "../styles/global.css";
+import "../styles/index.css";
+import "../styles/fonts.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
+    type?: string;
+}
+
+const {
+    title = "MindfulList - Mindfulness Apps and Resources",
+    description = "Discover curated mindfulness and personal growth apps.",
+    image,
+    type = "Website",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content={type} />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        {image && <meta property="og:image" content={image} />}
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        {image && <meta property="twitter:image" content={image} />}
+
+        <!-- Any other head elements you need -->
+    </head>
+    <body>
+        <div id="root">
+            <Header />
+            <div id="parent">
+                <div id="main">
+                    <!-- Uncomment if you implement the Sidebar component
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+          -->
+                    <div id="detail">
+                        <slot />
+                        <!-- This is where the page content will be injected -->
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <!-- Footer content here -->
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+---
+// sidebar.astro
+// Get the current path to determine active links
+const pathname = Astro.url.pathname;
+
+// This will be passed as a prop
+const { sidebarOpen = false } = Astro.props;
+---
+
+<div id="sidebar" class={`top-200 ${sidebarOpen ? "w-[200px]" : "w-[0]"}`}>
+  <div
+    id="sidebar-button"
+    class={`${sidebarOpen ? "rotate-180" : ""}`}
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+      <path
+        d="M10.294 9.698a.988.988 0 010-1.407 1.01 1.01 0 011.419 0l2.965 2.94a1.09 1.09 0 010 1.548l-2.955 2.93a1.01 1.01 0 01-1.42 0 .988.988 0 010-1.407l2.318-2.297-2.327-2.307z"
+        fill="rgb(2, 90, 197)"
+      ></path>
+    </svg>
+  </div>
+  <div id="sidebar-content-container">
+    <div id="sidebar-content">
+      <nav>
+        <ul>
+          <li></li>
+          <li>
+            <a href="/" class={pathname === "/" ? "active" : ""}>Home</a>
+            <a href="/help" class={pathname === "/help" ? "active" : ""}>Help</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Client-side interactivity
+  const sidebarButton = document.getElementById('sidebar-button');
+  const sidebar = document.getElementById('sidebar');
+
+  // We need to track state on the client side
+  let sidebarOpen = sidebar?.classList.contains('w-[200px]') || false;
+
+  sidebarButton?.addEventListener('click', () => {
+    sidebarOpen = !sidebarOpen;
+
+    // Update the sidebar width
+    if (sidebar) {
+      sidebar.classList.toggle('w-[200px]', sidebarOpen);
+      sidebar.classList.toggle('w-[0]', !sidebarOpen);
+    }
+
+    // Update the button rotation
+    if (sidebarButton) {
+      sidebarButton.classList.toggle('rotate-180', sidebarOpen);
+    }
+  });
+</script>
+
+<style>
+  /* Add your styles here */
+  a.active {
+    font-weight: bold;
+  }
+</style>

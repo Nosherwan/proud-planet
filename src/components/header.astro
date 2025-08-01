@@ -1,0 +1,56 @@
+---
+// header.astro
+// Import useEffect and states aren't needed in default Astro components
+// If you need client-side interactivity, you'd use a client directive like client:load
+
+// Get the current path to determine active links
+const pathname = Astro.url.pathname;
+---
+
+<header id="header">
+    <div id="header-content">
+        <nav>
+            <a href="/" class={pathname === "/" ? "active" : ""}>
+                MindfulList.com.au
+            </a>
+            <a href="/blogs" class={pathname === "/blogs" ? "active" : ""}>
+                Blog
+            </a>
+            <!--
+      <a href="/login" class={pathname === "/login" ? "active" : ""}>
+        Login
+      </a>
+      <a href="#" id="logout-link">Logout</a>
+      -->
+        </nav>
+    </div>
+</header>
+
+<script>
+    // Client-side JavaScript for the smooth scroll behavior
+    document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        });
+    });
+
+    // If you need the logout functionality:
+    /*
+  document.getElementById('logout-link')?.addEventListener('click', async (e) => {
+    e.preventDefault();
+    await logout();
+    window.location.href = '/login';
+  });
+  */
+</script>
+
+<style>
+    /* Add your styles here */
+    a.active {
+        /* Style for active links */
+        font-weight: bold;
+    }
+</style>

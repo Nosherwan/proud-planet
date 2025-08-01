@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home page -->
+  <url>
+    <loc>https://mindfullist.com.au/</loc>
+    <lastmod>2025-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Blogs listing page -->
+  <url>
+    <loc>https://mindfullist.com.au/blogs</loc>
+    <lastmod>2025-03-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Individual blog posts -->
+  <url>
+    <loc>https://mindfullist.com.au/blog/welcome-to-mindful-list</loc>
+    <lastmod>2025-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Additional blog posts... -->
+  <url>
+    <loc>https://mindfullist.com.au/blog/what-is-mindfulness-a-guide</loc>
+    <lastmod>2025-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mindfullist.com.au/blog/reset-nervous-system-calm</loc>
+    <lastmod>2025-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mindfullist.com.au/blog/cut-back-social-media-time-focus</loc>
+    <lastmod>2025-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mindfullist.com.au/blog/essential-sleep-hygiene-everyone</loc>
+    <lastmod>2025-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mindfullist.com.au/blog/mental-health-war-conflict</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>
+    https://mindfullist.com.au/blog/outdoor-indoor-balance-mental-health
+    </loc>
+    <lastmod>2025-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>
+    https://mindfullist.com.au/blog/mindful-dating-align-values
+    </loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

@@ -1,0 +1,63 @@
+---
+// src/pages/index.astro
+import StandardLayout from "../layouts/Layout.astro";
+import { getCatalogues, getRandomCatalogue } from "../fetchers/catalogues";
+import { getTags } from "../fetchers/tags";
+import MainHomeSearch from "../components/mainHomeSearch";
+
+// Import images
+// In Astro, you don't need to import images that are in the public folder
+const heroImage = { src: "/meditation.jpeg" };
+const heroImageSmall = { src: "/meditation-small.jpeg" };
+
+// This runs at build time in SSG or at request time in SSR
+const initialFilters: string[][] = [];
+const { catalogues: initialCatalogues } = await getCatalogues(
+    initialFilters,
+    0,
+);
+const { randomCatalogue } = await getRandomCatalogue();
+const { tags } = await getTags();
+
+const title = "A curated list of mindfulness apps and articles";
+const description =
+    "Discover curated mindfulness and personal growth apps. Find reviews, ratings, and details on apps like Mindvalley, Buddhify, Simple Habit, and more. Improve your wellbeing today.";
+const type = "website";
+---
+
+<StandardLayout
+    title={title}
+    description={description}
+    image={heroImage.src}
+    type={type}
+>
+    <div class="flex flex-col items-center justify-start w-full">
+        <!-- Hero section -->
+        <div
+            class="rounded-sm shadow-lg flex flex-col md:flex-row bg-gradient-to-br from-blue-900 via-purple-700 to-red-500 w-full relative min-h-64"
+        >
+            <img
+                src={heroImage.src}
+                decoding="async"
+                class="absolute opacity-50 w-full h-full object-cover rounded-sm"
+                srcset={`${heroImageSmall} 480w, ${heroImage} 1280w`}
+                alt="Person meditating in a peaceful environment, representing mindfulness and mental wellness"
+            />
+            <h1
+                class="text-red-50 drop-shadow-[0_3px_1px_rgba(0,0,0,0.5)] p-6 flex flex-col items-center"
+                style={{ fontFamily: "Roboto, sans-serif" }}
+            >
+                Mental health matters. Right tools can make a difference. Here
+                you can find top apps for stress, sleep, mood tracking &
+                wellness.
+            </h1>
+        </div>
+        <!-- Search Component (we'll make this interactive with client:load) -->
+        <MainHomeSearch
+            initialCatalogues={initialCatalogues}
+            initialRandomApp={randomCatalogue}
+            tags={tags}
+            client:load
+        />
+    </div>
+</StandardLayout>

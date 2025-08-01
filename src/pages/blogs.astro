@@ -1,0 +1,50 @@
+---
+import StandardLayout from "../layouts/Layout.astro";
+import BlogsComponent from "../components/blogsComponent";
+import { getPosts } from "../fetchers/posts";
+
+const heroImage = { src: "/meditation.jpeg" };
+const heroImageSmall = { src: "/meditation-small.jpeg" };
+
+const title = "Discover Mindfulness: Articles to Guide You";
+const description = "Our blog section on mindfullness";
+const type = "website";
+
+const initialFilters: string[][] = [];
+const {
+    posts: { posts, cursor, hasMore },
+} = await getPosts(0);
+
+const initial = { posts: posts, cursor: cursor, hasMore: hasMore };
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
+---
+
+<StandardLayout
+    title={title}
+    description={description}
+    image={heroImage.src}
+    type={type}
+>
+    <div class="flex flex-col items-center justify-start w-full">
+        <div
+            class="rounded-sm shadow-lg flex flex-col md:flex-row bg-gradient-to-br from-blue-900 via-purple-700 to-red-500 w-full relative min-h-64"
+        >
+            <img
+                src={heroImage.src}
+                decoding="async"
+                class="absolute opacity-50 w-full h-full object-cover rounded-sm"
+                srcset={`${heroImageSmall.src} 480w, ${heroImage.src} 1280w`}
+                alt="Person meditating in a peaceful environment, representing mindfulness and mental wellness"
+            />
+            <h1
+                class="text-red-50 drop-shadow-[0_3px_1px_rgba(0,0,0,0.5)] p-6 flex flex-col items-center"
+                style={{ fontFamily: "Roboto, sans-serif" }}
+            >
+                Explore The Mindfulness Journey: A variety of articles to guide
+                your Path towards a balanced life.
+            </h1>
+        </div>
+        <BlogsComponent initial={initial} client:load />
+    </div>
+</StandardLayout>
